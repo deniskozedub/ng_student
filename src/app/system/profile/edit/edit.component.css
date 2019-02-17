@@ -1,0 +1,115 @@
+button {
+  width: 150px;
+}
+
+#upload_button {
+  display: inline-block;
+}
+#upload_button input[type=file] {
+  display:none;
+}
+
+#btn-outline-primary-upload{
+  width: 245px!important;
+  margin: 30px 0 0 21px;
+}
+
+.card-img-top{
+  width: 250px;
+  max-height: 250px;
+  margin: 15px 15px 15px 18px;
+  border-radius: 10%;
+}
+.card-img-top:hover{
+  transform: scale(1.1);
+  transition: .5s;
+}
+.block{
+  transition: .5s;
+}
+
+.upload{
+  transition: .5s linear;
+}
+.upload:hover{
+  transform: scale(1.15);
+}
+
+.btn-lg{
+  transition: .5s linear;
+}
+
+
+.btn-lg:hover{
+  transform: scale(1.2);
+}
+
+.faculty, .group{
+  position: relative;
+}
+.ul-faculty, .ul-group{
+  position: absolute;
+  list-style-type: none;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid blue;
+  border-radius: 3px;
+}
+.this-faculty, .this-group{
+  position: relative;
+  margin-top: 2px;
+  border-radius: 5px;
+  left: -20px;
+  padding-left: 10px;
+  /*width: 305px;*/
+
+}
+.this-faculty:hover, .this-group:hover{
+  cursor: pointer;
+  background: blue;
+  color: white;
+
+
+}
+
+.ng-valid:not(form){
+  border-left: 7px solid blue;
+}
+.ng-invalid:not(form)  {
+  border-left: 7px solid red;
+}
+
+circle-progress, .spinner{
+  position: absolute;
+}
+
+.disabled{
+  opacity: .7;
+}
+.disabled:hover{
+  background: red;
+  color: white;
+  transition: 800ms;
+  cursor: pointer;
+}
+
+i{
+  position: absolute;
+  top: 4px;
+  left: 6px;
+  z-index: 1000;
+  transition: .5s;
+}
+i:hover{
+  cursor: pointer;
+  transform: scale(2) rotate(360deg);
+  transition: .5s;
+}
+
+.get-edit-button{
+  width: 165px;
+  position: relative;
+  right: 15px;
+}
+

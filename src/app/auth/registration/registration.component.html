@@ -1,0 +1,76 @@
+<div class="mt-4 col-8 offset-2">
+  <div class="card">
+    <div class="card-header">Registration form</div>
+    <div class="card-body">
+      <div class="alert alert-success" *ngIf="message">
+        <div><strong>Регистрация прошла успешно!</strong></div>
+        <div>{{message}}</div>
+      </div>
+      <form (ngSubmit)="register()" [formGroup]="registerForm">
+        <div class="row">
+        <div class="col-md-6">
+          <div class="form-group col-md-12">
+            <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.student_serial">
+              {{formErrors.student_serial}}
+            </div>
+            <label for="student_serial">Student serial</label>
+            <input name="name"  type="text" class="form-control" id="student_serial"
+                   placeholder="Serial"
+                   formControlName="student_serial">
+          </div>
+          <div class="form-group col-md-12">
+            <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.password">
+              {{formErrors.password}}
+            </div>
+            <label for="student_serial">Password</label>
+            <input name="password"  type="password" class="form-control" id="password"
+                   placeholder="Password"
+                   formControlName="password">
+          </div>
+          <div class="form-group col-md-12">
+            <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.email" >
+              {{formErrors.email}}
+            </div>
+            <label for="email">Email</label>
+            <input  name="email" type="email" class="form-control" id="email" placeholder="Email" formControlName="email">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group col-md-12">
+            <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.student_number" >
+              {{formErrors.student_number}}
+            </div>
+            <label for="student_number">Student Number</label>
+            <input name="student_number" type="text" class="form-control"
+                   id="student_number" placeholder="Student Number" formControlName="student_number">
+          </div>
+          <div class="form-group col-md-12">
+            <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.password_confirmation" >
+              {{formErrors.password_confirmation}}
+            </div>
+            <label for="password_confirmation">Password Confirmation</label>
+            <input name="password" type="password" class="form-control"
+                   id="password_confirmation" placeholder="Password Confirm" formControlName="password_confirmation">
+          </div>
+          <div class="form-group col-md-12">
+            <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.phone" >
+              {{formErrors.phone}}
+            </div>
+            <label for="email">Phone</label>
+            <div class="input-group-prepend">
+              <div class="input-group-text">+38</div> &nbsp;
+              <input  name="phone" id="phone" class="form-control" placeholder="Phone" formControlName="phone">
+            </div>
+          </div>
+          <div class="form-group col-md-6 offset-5">
+            <button type="submit" class="btn btn-outline-primary reg" [disabled]="!registerForm.valid">Registration</button>
+          </div>
+        </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

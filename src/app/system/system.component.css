@@ -1,0 +1,12 @@
+.nav-left{
+  position: absolute;
+  left: 30px;
+  top: 111px;
+  border: 1px solid #e4e4e4;
+  height: 576px;
+  border-radius: 5px;
+}
+.nav-pills{
+  margin-top: 20px;
+}
+

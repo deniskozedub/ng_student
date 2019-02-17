@@ -1,0 +1,108 @@
+ <form  *ngIf="flag" (ngSubmit)="editProfile(this.editForm)" [formGroup]="editForm">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+              <i *ngIf="flagIcon" (click)="deletePhoto()" class="fa fa-times"></i>
+              <div exploreImage>
+                <img class="card-img-top block" src="{{ currentUser.avatar?.url}}" alt="Card image cap">
+              </div>
+              <div id="upload_button">
+                <label>
+                  <input type="file" ngf-select ng-model="new_files" (change)="uploadPhoto($event)">
+                  <span  class="btn btn-outline-primary upload" id="btn-outline-primary-upload">Загрузить аватар</span>
+                </label>
+              </div>
+              <div class="spinner">
+
+                <spinner *ngIf="spinner" [size]="20"></spinner>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-4">
+            <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.name">
+              {{formErrors.name}}
+            </div>
+            <label for="name">Имя</label>
+            <input name="name"  type="text" class="form-control" id="name" placeholder="Name" formControlName="name" >
+            <label for="facultet">Факультет</label>
+            <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.facultet">
+              {{formErrors.facultet}}
+            </div>
+            <input name="facultet" #facultet (focus)="facultyListener()"   type="text" class="form-control"
+                   id="facultet" placeholder="Faculty" formControlName="facultet" >
+            <div class="faculty">
+              <ul class="ul-faculty" *ngIf="foundedFacultet.length">
+                <li class="this-faculty" *ngFor="let item of foundedFacultet" (click)="selectFacultet(item)">{{item}}</li>
+              </ul>
+            </div>
+            <label for="university">Университет</label>
+            <select name="university" id="university" class="form-control" formControlName="university">
+              <option *ngFor="let item of allUnivers" [value]="item.id">{{item.name}}</option>
+            </select>
+            <label for="student_serial">Студенческий билет</label>
+            <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.student_id">
+              {{formErrors.student_id}}
+            </div>
+            <div class="input-group-prepend">
+              <div class="input-group-text">{{serial}}</div> &nbsp;
+              <input name="student_serial" readonly   type="text" class="form-control" id="student_serial"
+                     placeholder="Student ID" formControlName="student_serial" >
+            </div>
+
+
+            <label for="change-pass">Сменить пароль</label>
+            <input routerLink="/system/profile/change-password" name="student_id"  type="button"
+                   class="form-control btn btn-outline-primary" id="change-pass" value="Сменить пароль" >
+          </div>
+          <div class="form-group col-md-4">
+            <label for="surname">Фамилия</label>
+            <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.surname">
+              {{formErrors.surname}}
+            </div>
+            <input name="surname" type="text" class="form-control" id="surname" placeholder="Surname"formControlName="surname" >
+            <label for="group">Группа</label>
+            <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.group">
+              {{formErrors.group}}
+            </div>
+            <input name="group" type="text"  #group (focus)="groupListener()"  class="form-control" id="group"
+                   placeholder="Group" formControlName="group" >
+            <div class="group">
+              <ul class="ul-group" *ngIf="foundedGroup.length">
+                <li class="this-group" *ngFor="let item of foundedGroup" (click)="selectGroup(item)">{{item}}</li>
+              </ul>
+            </div>
+
+            <label for="email">Email</label>
+            <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.email">
+              {{formErrors.email}}
+            </div>
+            <div class="alert alert-warning col-sm-12"  *ngIf="currentUser.verify_email == false">
+             Подтвердите ваш новый email !
+            </div>
+            <input readonly name="email"  type="email" class="form-control"
+                   id="email" placeholder="Email" formControlName="email">
+
+            <label for="phone">Телефон</label>
+            <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.phone">
+              {{formErrors.phone}}
+            </div>
+            <div class="input-group-prepend">
+              <div class="input-group-text">{{phoneCode}}</div> &nbsp;
+              <input readonly name="phone" id="phone" class="form-control" placeholder="Phone" formControlName="phone">
+            </div>
+            <label for="change-email">Сменить email</label>
+            <input routerLink="/system/profile/change-email"   type="button"
+                   class="form-control btn btn-outline-primary" id="change-email" value="Сменить email" >
+
+            <label for="change-phone">Сменить телефон</label>
+            <input routerLink="/system/profile/change-phone"   type="button"
+                   class="form-control btn btn-outline-primary" id="change-phone" value="Сменить телефон" >
+          </div>
+
+          <div class="col-md-2 offset-md-10">
+            <button type="submit" class="btn btn-outline-primary btn-lg get-edit-button"
+                    [ngClass]="{'disabled btn-outline-danger ': !editForm.valid || !changeForm}">Редактировать</button>
+          </div>
+        </div>
+ </form>
+

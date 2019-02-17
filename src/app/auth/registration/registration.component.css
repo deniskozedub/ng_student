@@ -1,0 +1,18 @@
+.ng-valid:not(form){
+  border-left: 7px solid blue;
+}
+.ng-invalid:not(form)  {
+  border-left: 7px solid red;
+}
+button{
+  margin: 30px 0 0 30px;
+}
+
+.reg{
+  transition: .5s linear;
+}
+
+
+.reg:hover{
+  transform: scale(1.3);
+}

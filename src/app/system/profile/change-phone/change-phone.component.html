@@ -1,0 +1,23 @@
+<form (ngSubmit)="changePhone(this.changePhoneForm)" [formGroup]="changePhoneForm">
+  <div class="form-group col-md-6 offset-3">
+    <label for="phone">New phone</label>
+    <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.phone">
+      {{formErrors.phone}}
+    </div>
+    <div class="alert alert-danger col-sm-12"  *ngIf="issetPhone">
+      Это ваш текущий телефон.
+    </div>
+    <div class="input-group-prepend">
+      <div class="input-group-text">+38</div> &nbsp;
+      <input (keyup)="confirmPnone()" type="text" class="form-control" id="phone"  placeholder="0994267421" formControlName="phone">
+    </div>
+
+
+  </div>
+  <div class="form-group col-md-6 offset-3">
+    <button routerLink="/profile/edit" class="btn btn-outline-primary">К профилю</button>
+    <button type="submit" class="btn btn-primary col-md-4 offset-5"
+            [disabled]="!changePhoneForm.valid || issetPhone">Изменить</button>
+  </div>
+  <div id="recaptcha-container"></div>
+</form>

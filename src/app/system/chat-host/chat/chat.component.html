@@ -1,0 +1,33 @@
+<div class="panel-block">
+        <div  *ngIf="messages" class="chat" #chat >
+            <div *ngFor="let item of messages;"  class="chat-left">
+              <div class="display-name chat-top">{{item['user'].name + " " + item['user'].surname}}</div>
+              <div class="chat-bottom">
+                  <div class="chat-body">{{item['body']}} </div>
+                  <div class="time">{{item['created_at']}}</div>
+              </div>
+            </div>
+          <div *ngIf="!messages.length">
+            Груповой чат пуст
+          </div>
+        </div>
+  <div *ngIf="!messages" class="chat">
+    <div class="loader"></div>
+  </div>
+      </div>
+      <form (ngSubmit)="sendMessage()" [formGroup]="chatForm">
+        <div class="row">
+          <div class="col-md-6">
+            <textarea (keyup.enter)="sendMessage()"  [(ngModel)]="textarea" class="form-control" formControlName="body"></textarea>
+          </div>
+          <div class="col-md-6">
+            <input  type="submit" class="btn btn-outline-primary btn-lg"
+                   [disabled]="!chatForm.valid"  value="Отправить">
+          </div>
+
+        </div>
+   </form>
+
+
+
+

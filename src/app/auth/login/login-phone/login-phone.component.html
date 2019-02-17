@@ -1,0 +1,36 @@
+<div class="alert alert-danger" *ngIf="message">
+  <div>{{message}}</div>
+</div>
+<form (ngSubmit)="loginWithPhone(loginFormPhone)" [formGroup]="loginFormPhone">
+  <div class="form-group row">
+    <label for="phone" class="col-sm-2 col-form-label">Login</label>
+    <div class="col-sm-10">
+      <div class="alert alert-danger" *ngIf="formErrors.login">
+        {{formErrors.login}}
+      </div>
+      <div class="input-group-prepend">
+        <div class="input-group-text">+38</div> &nbsp;
+        <input type="text" (keypress)="_keyPress($event)" class="form-control" id="phone"
+               placeholder="Pnone" formControlName="login">
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="password" class="col-sm-2 col-form-label">Password</label>
+    <div class="col-sm-10">
+      <div class="alert alert-danger" *ngIf="formErrors.password" >
+        {{formErrors.password}}
+      </div>
+      <input name="password" class="form-control"
+             id="password" placeholder="Password"  formControlName="password" >
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-outline-primary" [disabled]=" !loginFormPhone.valid">Login</button>
+      <a routerLink="../change-auth" class="btn btn-outline-primary right">Назад</a>
+    </div>
+  </div>
+</form>
+
+

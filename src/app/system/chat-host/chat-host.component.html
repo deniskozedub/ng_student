@@ -1,0 +1,13 @@
+<div class=" col-md-12 offset-1 get-chat-block">
+  <div class="card">
+    <div class="card-header">{{chatName}}</div>
+    <div class="card-body">
+      <app-chat
+        [messages]="messages"
+        [activeUser]="activeUser"
+        [chatName]="chatName"
+        (onMessage)="sendMessage($event)"
+      ></app-chat>
+    </div>
+  </div>
+</div>

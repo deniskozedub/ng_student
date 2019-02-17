@@ -1,0 +1,18 @@
+.ng-valid:not(form){
+  border-left: 7px solid blue;
+}
+.ng-invalid:not(form)  {
+  border-left: 7px solid red;
+}
+
+.btn-outline-primary{
+  min-width: 100px;
+  transition: .5s linear;
+}
+.btn-outline-primary:hover {
+  min-width: 150px;
+}
+
+.right{
+  float: right;
+}

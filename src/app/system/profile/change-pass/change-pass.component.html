@@ -1,0 +1,32 @@
+<form (ngSubmit)="changePassword(this.changePass)" [formGroup]="changePass">
+<!--  <div class="form-group col-md-6 offset-3">
+    <label for="old-pass">Old password</label>
+    <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.old_password">
+      {{formErrors.old_password}}
+    </div>
+    <input type="password" class="form-control" id="old-pass"  placeholder="Old password" formControlName="old_password">
+  </div>-->
+  <div class="form-group col-md-6 offset-3">
+    <label for="new-pass">New password</label>
+    <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.new_password">
+      {{formErrors.new_password}}
+    </div>
+    <input type="password" class="form-control" id="new-pass" placeholder=" New password" formControlName="new_password">
+  </div>
+  <div class="form-group col-md-6 offset-3">
+    <label for="new-pass-confirm">New password confirmation</label>
+    <div *ngIf="changePass.errors" >
+      <div *ngIf="changePass.errors['notSame']" class="alert alert-danger">Пароли не совпадают</div>
+    </div>
+    <div class="alert alert-danger col-sm-12"  *ngIf="formErrors.new_password_confirmation">
+      {{formErrors.new_password_confirmation}}
+    </div>
+    <input type="password" class="form-control" id="new-pass-confirm" placeholder=" New password confirmation"
+           formControlName="new_password_confirmation">
+  </div>
+
+  <div class="form-group col-md-6 offset-3">
+    <button routerLink="/system/profile/edit" class="btn btn-outline-primary">К профилю</button>
+  <button type="submit" class="btn btn-primary col-md-4 offset-5" [disabled]="!changePass.valid" >Изменить</button>
+  </div>
+</form>
